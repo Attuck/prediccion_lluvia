@@ -1,0 +1,87 @@
+Ricardos-MacBook-Pro:C50 rapuc$ ./c5.0 -f prediccion_lluvia
+
+C5.0 [Release 2.07 GPL Edition]  	Sun Nov  5 12:13:51 2017
+-------------------------------
+
+    Options:
+	Application `prediccion_lluvia'
+
+Class specified by attribute `RAIN_NEXT_HOUR'
+
+*** line 249440 of `prediccion_lluvia.data': bad value of `0' for attribute `RAIN_NEXT_HOUR'
+*** ignoring cases with bad or unknown class
+
+Read 249439 cases (9 attributes) from prediccion_lluvia.data
+
+Decision tree:
+
+RAIN_MM_TOT <= 0: f (216856/13038)
+RAIN_MM_TOT > 0:
+:...RAIN_MM_TOT > 0.75:
+    :...SLR_W_AVG <= 133.75: t (16583/3600)
+    :   SLR_W_AVG > 133.75:
+    :   :...RAIN_MM_TOT > 1.27: t (1207/458)
+    :       RAIN_MM_TOT <= 1.27:
+    :       :...RH_PERCENT <= 73.875: t (44/10)
+    :           RH_PERCENT > 73.875: f (648/303)
+    RAIN_MM_TOT <= 0.75:
+    :...RAIN_MM_TOT <= 0.254:
+        :...RAIN_MM_TOT <= 0.1: f (885/261)
+        :   RAIN_MM_TOT > 0.1:
+        :   :...BP_MBAR <= 1016.91: f (8933/2841)
+        :       BP_MBAR > 1016.91: t (106/35)
+        RAIN_MM_TOT > 0.254:
+        :...PAR_DEN_AVG > 502.25: f (401/175)
+            PAR_DEN_AVG <= 502.25:
+            :...SLR_W_AVG > 204.7: f (70/23)
+                SLR_W_AVG <= 204.7:
+                :...RAIN_MM_TOT <= 0.4: t (311/111)
+                    RAIN_MM_TOT > 0.4:
+                    :...RAIN_MM_TOT > 0.5: t (2999/1285)
+                        RAIN_MM_TOT <= 0.5:
+                        :...BP_MBAR <= 711.6: f (297/130)
+                            BP_MBAR > 711.6: t (99/37)
+
+
+Evaluation on training data (249439 cases):
+
+	    Decision Tree
+	  ----------------
+	  Size      Errors
+
+	    14 22307( 8.9%)   <<
+
+
+	    (a)    (b)    <-classified as
+	  -----  -----
+	 211319   5536    (a): class f
+	  16771  15813    (b): class t
+
+
+	Attribute usage:
+
+	    100%  RAIN_MM_TOT
+	      9%  SLR_W_AVG
+	      4%  BP_MBAR
+	      2%  PAR_DEN_AVG
+
+
+*** line 119 of `prediccion_lluvia.test': bad value of `0' for attribute `RAIN_NEXT_HOUR'
+*** ignoring cases with bad or unknown class
+
+Evaluation on test data (118 cases):
+
+	    Decision Tree
+	  ----------------
+	  Size      Errors
+
+	    14   19(16.1%)   <<
+
+
+	   (a)   (b)    <-classified as
+	  ----  ----
+	    87     3    (a): class f
+	    16    12    (b): class t
+
+
+Time: 2.1 secs

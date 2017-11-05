@@ -1,0 +1,78 @@
+
+C5.0 [Release 2.07 GPL Edition]  	Sat Nov  4 19:31:05 2017
+-------------------------------
+
+    Options:
+	Application `allbp'
+
+Class specified by attribute `classes'
+
+Read 2800 cases (30 attributes) from allbp.data
+
+Decision tree:
+
+pregnant = t:
+:...tumor = t: negative (7/1)
+:   tumor = f:
+:   :...T3 <= 2.7: negative (6.8/0.4)
+:       T3 > 2.7: increased binding protein (27.2/1.6)
+pregnant = f:
+:...T4U <= 1.18:
+    :...T4U > 0.6: negative (2447.5/18.8)
+    :   T4U <= 0.6:
+    :   :...TT4 <= 60: decreased binding protein (10.8/3.8)
+    :       TT4 > 60: negative (18.3/1)
+    T4U > 1.18:
+    :...T3 > 2.8:
+        :...TT4 measured = f: negative (5.2)
+        :   TT4 measured = t:
+        :   :...psych = t: negative (2)
+        :       psych = f:
+        :       :...on thyroxine = f: increased binding protein (70.1/18.6)
+        :           on thyroxine = t: negative (10/3)
+        T3 <= 2.8:
+        :...on thyroxine = t: negative (34.3)
+            on thyroxine = f:
+            :...TT4 > 159: increased binding protein (21/6.6)
+                TT4 <= 159:
+                :...T3 measured = t: negative (114.4/2)
+                    T3 measured = f:
+                    :...T4U measured = f: negative (8.8)
+                        T4U measured = t:
+                        :...T4U <= 1.25: negative (4.8)
+                            T4U > 1.25:
+                            :...TSH <= 6: increased binding protein (8.4/0.7)
+                                TSH > 6: negative (3.4/0.6)
+
+
+Evaluation on training data (2800 cases):
+
+	    Decision Tree   
+	  ----------------  
+	  Size      Errors  
+
+	    17   51( 1.8%)   <<
+
+
+	   (a)   (b)   (c)    <-classified as
+	  ----  ----  ----
+	   100          24    (a): class increased binding protein
+	           7     2    (b): class decreased binding protein
+	    22     3  2642    (c): class negative
+
+
+	Attribute usage:
+
+	    100%  pregnant
+	     88%  T4U
+	     19%  on thyroxine
+	     14%  T3 measured
+	     14%  T3
+	     10%  TT4
+	     10%  TT4 measured
+	      6%  T4U measured
+	      4%  psych
+	      1%  tumor
+
+
+Time: 0.0 secs
