@@ -1,11 +1,17 @@
 RAIN_NEXT_HOUR.
 
-AIRTEMP_C_AVG:    continuous.
-RH_PERCENT:				continuous.
+AIRTEMP_C_AVG:			continuous.
+AIRTEMP_C_MAX:			continuous.
+AIRTEMP_C_MIN:			continuous.
+RH_PERCENT:			    continuous.
 WINDSP_MS_S:			continuous.
 WINDSP_MS_U:			continuous.
-BP_MBAR:				  continuous.
-SLR_W_AVG:				continuous.
+BP_MBAR:			    continuous.
+SLR_W_AVG:			    continuous.
+SLR_W_MAX:			    continuous.
+SLR_W_MIN:			    continuous.
 PAR_DEN_AVG:			continuous.
-RAIN_MM_TOT:			continuous.
-RAIN_NEXT_HOUR:   f,t.
+PAR_DEN_MAX:			continuous.
+PAR_DEN_MIN:			continuous.
+RAIN_MM_TOT:			ignore.
+RAIN_NEXT_HOUR:         f,t.

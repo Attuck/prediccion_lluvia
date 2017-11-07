@@ -1,6 +1,5 @@
-Ricardos-MacBook-Pro:C50 rapuc$ ./c5.0 -f prediccion_lluvia
 
-C5.0 [Release 2.07 GPL Edition]  	Sun Nov  5 12:13:51 2017
+C5.0 [Release 2.07 GPL Edition]  	Mon Nov  6 22:19:09 2017
 -------------------------------
 
     Options:
@@ -8,80 +7,83 @@ C5.0 [Release 2.07 GPL Edition]  	Sun Nov  5 12:13:51 2017
 
 Class specified by attribute `RAIN_NEXT_HOUR'
 
-*** line 249440 of `prediccion_lluvia.data': bad value of `0' for attribute `RAIN_NEXT_HOUR'
-*** ignoring cases with bad or unknown class
-
-Read 249439 cases (9 attributes) from prediccion_lluvia.data
+Read 199666 cases (15 attributes) from prediccion_lluvia.data
 
 Decision tree:
 
-RAIN_MM_TOT <= 0: f (216856/13038)
+RAIN_MM_TOT <= 0: f (172837/10672)
 RAIN_MM_TOT > 0:
-:...RAIN_MM_TOT > 0.75:
-    :...SLR_W_AVG <= 133.75: t (16583/3600)
-    :   SLR_W_AVG > 133.75:
-    :   :...RAIN_MM_TOT > 1.27: t (1207/458)
-    :       RAIN_MM_TOT <= 1.27:
-    :       :...RH_PERCENT <= 73.875: t (44/10)
-    :           RH_PERCENT > 73.875: f (648/303)
+:...RAIN_MM_TOT > 0.75: t (15037/3502)
     RAIN_MM_TOT <= 0.75:
-    :...RAIN_MM_TOT <= 0.254:
-        :...RAIN_MM_TOT <= 0.1: f (885/261)
-        :   RAIN_MM_TOT > 0.1:
-        :   :...BP_MBAR <= 1016.91: f (8933/2841)
-        :       BP_MBAR > 1016.91: t (106/35)
-        RAIN_MM_TOT > 0.254:
-        :...PAR_DEN_AVG > 502.25: f (401/175)
-            PAR_DEN_AVG <= 502.25:
-            :...SLR_W_AVG > 204.7: f (70/23)
-                SLR_W_AVG <= 204.7:
-                :...RAIN_MM_TOT <= 0.4: t (311/111)
-                    RAIN_MM_TOT > 0.4:
-                    :...RAIN_MM_TOT > 0.5: t (2999/1285)
-                        RAIN_MM_TOT <= 0.5:
-                        :...BP_MBAR <= 711.6: f (297/130)
-                            BP_MBAR > 711.6: t (99/37)
+    :...RAIN_MM_TOT > 0.254:
+        :...PAR_DEN_MIN > 153.65:
+        :   :...BP_MBAR <= 875.8447: t (53.8/18)
+        :   :   BP_MBAR > 875.8447: f (674.7/294.2)
+        :   PAR_DEN_MIN <= 153.65:
+        :   :...RH_PERCENT <= 83.375: f (128.1/53.4)
+        :       RH_PERCENT > 83.375:
+        :       :...RH_PERCENT <= 98.3: t (2601.4/1050.7)
+        :           RH_PERCENT > 98.3: f (146/63)
+        RAIN_MM_TOT <= 0.254:
+        :...PAR_DEN_MIN > 605: f (331/38.5)
+            PAR_DEN_MIN <= 605:
+            :...RH_PERCENT <= 71.16: f (204.7/39.8)
+                RH_PERCENT > 71.16:
+                :...AIRTEMP_C_AVG <= 18.8: f (2276.9/589.5)
+                    AIRTEMP_C_AVG > 18.8:
+                    :...AIRTEMP_C_AVG > 29.15: t (41/11)
+                        AIRTEMP_C_AVG <= 29.15:
+                        :...SLR_W_MIN > 120.3: f (610.9/160.5)
+                            SLR_W_MIN <= 120.3:
+                            :...RAIN_MM_TOT > 0.1:
+                                :...RAIN_MM_TOT <= 0.2: t (249/114)
+                                :   RAIN_MM_TOT > 0.2: f (3690.6/1388.8)
+                                RAIN_MM_TOT <= 0.1:
+                                :...RH_PERCENT > 88.81: f (641/167)
+                                    RH_PERCENT <= 88.81:
+                                    :...AIRTEMP_C_AVG > 26.52: t (11/1)
+                                        AIRTEMP_C_AVG <= 26.52:
+                                        :...SLR_W_MIN <= 41.88: t (103/45)
+                                            SLR_W_MIN > 41.88: f (29/6)
 
 
-Evaluation on training data (249439 cases):
+Evaluation on training data (199666 cases):
 
-	    Decision Tree
-	  ----------------
-	  Size      Errors
+	    Decision Tree   
+	  ----------------  
+	  Size      Errors  
 
-	    14 22307( 8.9%)   <<
+	    18 18199( 9.1%)   <<
 
 
 	    (a)    (b)    <-classified as
 	  -----  -----
-	 211319   5536    (a): class f
-	  16771  15813    (b): class t
+	 168093   4746    (a): class f
+	  13453  13374    (b): class t
 
 
 	Attribute usage:
 
 	    100%  RAIN_MM_TOT
-	      9%  SLR_W_AVG
-	      4%  BP_MBAR
-	      2%  PAR_DEN_AVG
+	      5%  RH_PERCENT
+	      5%  PAR_DEN_MIN
+	      4%  AIRTEMP_C_AVG
+	      2%  SLR_W_MIN
 
 
-*** line 119 of `prediccion_lluvia.test': bad value of `0' for attribute `RAIN_NEXT_HOUR'
-*** ignoring cases with bad or unknown class
+Evaluation on test data (49912 cases):
 
-Evaluation on test data (118 cases):
+	    Decision Tree   
+	  ----------------  
+	  Size      Errors  
 
-	    Decision Tree
-	  ----------------
-	  Size      Errors
-
-	    14   19(16.1%)   <<
+	    18 4144( 8.3%)   <<
 
 
 	   (a)   (b)    <-classified as
 	  ----  ----
-	    87     3    (a): class f
-	    16    12    (b): class t
+	 43010  1101    (a): class f
+	  3043  2758    (b): class t
 
 
-Time: 2.1 secs
+Time: 3.2 secs
