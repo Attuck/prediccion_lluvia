@@ -13,5 +13,4 @@ SLR_W_MIN:			    continuous.
 PAR_DEN_AVG:			continuous.
 PAR_DEN_MAX:			continuous.
 PAR_DEN_MIN:			continuous.
-RAIN_MM_TOT:			ignore.
 RAIN_NEXT_HOUR:         f,t.
