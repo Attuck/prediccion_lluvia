@@ -21,7 +21,7 @@ import csv
 # 5:int((STATION_COUNT[5]-STATION_COUNT[4])*0.5),
 # 6:int((STATION_COUNT[6]-STATION_COUNT[5])*0.5)
 # }
-total_rows= 499160
+total_rows= 127799
 test_proportion = 0.5
 COLUMNS = [
 'AIRTEMP_C_AVG',
@@ -57,8 +57,8 @@ with open(filepath, newline='') as source:
             test_modulo = int(total_rows/test_rows)
             for row in reader:
                 # print(count)
-                # if count == STATION_COUNT[station] :
-                    # station = station+1
+                if count == total_rows:
+                    break
                 for column in COLUMNS:
                     if row[column] == "" or row[column] == None:
                         classified_row.append("?")
