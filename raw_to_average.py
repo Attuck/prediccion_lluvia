@@ -21,8 +21,8 @@ STATION_COUNT = {
 # 5:int((STATION_COUNT[5]-STATION_COUNT[4])*0.5),
 # 6:int((STATION_COUNT[6]-STATION_COUNT[5])*0.5)
 # }
-est_proportion = 0.22
-station = 0 #0 means all
+test_proportion = 0.22
+station = 2 #0 means all
 COLUMNS = [
 'AIRTEMP_C_AVG',
 'AIRTEMP_C_MAX',
@@ -64,9 +64,9 @@ with open(filepath, newline='') as source:
                 if count == STATION_COUNT[station]:
                     break
                 if station > 0:
-                    if row['IDSTATION'] < station:
+                    if int(row['IDSTATION']) < station:
                          continue
-                    elif row['IDSTATION'] > station:
+                    elif int(row['IDSTATION']) > station:
                          break    
                 for column in COLUMNS:
                     if row[column] == "" or row[column] == None:
@@ -92,4 +92,4 @@ with open(filepath, newline='') as source:
                     output_data.writerow(classified_row)
                     classified_row = []
                     # print('one to data')
-               count = count +1
+                count = count +1
