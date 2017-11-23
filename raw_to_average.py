@@ -21,7 +21,16 @@ import csv
 # 5:int((STATION_COUNT[5]-STATION_COUNT[4])*0.5),
 # 6:int((STATION_COUNT[6]-STATION_COUNT[5])*0.5)
 # }
-total_rows= 127799
+
+#1:0
+#2:127799
+#3:264368
+#4:380367
+#32:439439
+#33:469243
+#499160
+#total_rows= 127799
+total_rows = 499160
 test_proportion = 0.5
 COLUMNS = [
 'AIRTEMP_C_AVG',
@@ -64,7 +73,7 @@ with open(filepath, newline='') as source:
                         classified_row.append("?")
                     else:
                         classified_row.append(float(row[column]))
-                
+
                 try:
                     rain = float(row['RAIN_MM_TOT'])
                 except Exception as identifier:
@@ -79,10 +88,10 @@ with open(filepath, newline='') as source:
                     output_test.writerow(classified_row)
                     classified_row = []
                     # print('one to test')
-                else:                    
-                    output_data.writerow(classified_row)  
-                    classified_row = []  
+                else:
+                    output_data.writerow(classified_row)
+                    classified_row = []
                     # print('one to data')
 
-                    
+
                 count = count +1
