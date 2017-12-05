@@ -1,9 +1,9 @@
+#!/usr/bin/python
 import csv
 import subprocess
-
+#from  sys import platform
 def bash_command(cmd):
     subprocess.Popen(['/bin/bash', '-c', cmd])
-
 # from numpy import mean
 STATION_COUNT = {
 1:127799,
@@ -26,7 +26,7 @@ STATION_COUNT = {
 # 5:int((STATION_COUNT[5]-STATION_COUNT[4])*0.5),
 # 6:int((STATION_COUNT[6]-STATION_COUNT[5])*0.5)
 # }
-test_proportion = 0.5
+test_proportion = 0.6
 station = 1 #0 means all
 COLUMNS = [
 'AIRTEMP_C_AVG',
@@ -64,7 +64,7 @@ with open(filepath, newline='') as source:
                 total_rows = STATION_COUNT[station]-STATION_COUNT[station-1] 
             print(total_rows)
             test_rows = total_rows*test_proportion
-            test_modulo = int(total_rows/test_rows)
+            test_modulo = 10*test_proportion
             for row in reader:
                 # print(count)
                 if count == STATION_COUNT[station]:
@@ -90,7 +90,7 @@ with open(filepath, newline='') as source:
                 else:
                     classified_row.append('f')
 
-                if count % test_modulo == 0:
+                if count % 10 <= test_modulo:
                     output_test.writerow(classified_row)
                     classified_row = []
                     # print('one to test')
@@ -100,5 +100,5 @@ with open(filepath, newline='') as source:
                     # print('one to data')
                 count = count +1
 
-cmd = "cd C50 && ./c5.0 -f predicción_lluvia > output_prediccion_lluvia_" + str(station) + "_" + str(test_proportion) + ".txt && cd .."
+cmd = "cd C50 && ./c5.0 -f prediccion_lluvia > output_prediccion_lluvia_" + str(station) + "_" + str(test_proportion) + ".txt && cd .."
 bash_command(cmd);
