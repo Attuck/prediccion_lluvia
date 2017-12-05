@@ -90,7 +90,7 @@ with open(filepath, newline='') as source:
                 else:
                     classified_row.append('f')
 
-                if count % 10 <= test_modulo:
+                if count % 10 < test_modulo:
                     output_test.writerow(classified_row)
                     classified_row = []
                     # print('one to test')
