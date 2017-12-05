@@ -1,4 +1,9 @@
 import csv
+import subprocess
+
+def bash_command(cmd):
+    subprocess.Popen(['/bin/bash', '-c', cmd])
+
 # from numpy import mean
 STATION_COUNT = {
 1:127799,
@@ -21,8 +26,8 @@ STATION_COUNT = {
 # 5:int((STATION_COUNT[5]-STATION_COUNT[4])*0.5),
 # 6:int((STATION_COUNT[6]-STATION_COUNT[5])*0.5)
 # }
-test_proportion = 0.22
-station = 2 #0 means all
+test_proportion = 0.5
+station = 1 #0 means all
 COLUMNS = [
 'AIRTEMP_C_AVG',
 'AIRTEMP_C_MAX',
@@ -30,6 +35,7 @@ COLUMNS = [
 'RH_PERCENT',
 'WINDSP_MS_S',
 'WINDSP_MS_U',
+#'WINDDIR_DU',
 'BP_MBAR',
 'SLR_W_AVG',
 'SLR_W_MAX',
@@ -93,3 +99,6 @@ with open(filepath, newline='') as source:
                     classified_row = []
                     # print('one to data')
                 count = count +1
+
+cmd = "cd C50 && ./c5.0 -f predicción_lluvia > output_prediccion_lluvia_" + str(station) + "_" + str(test_proportion) + ".txt && cd .."
+bash_command(cmd);
