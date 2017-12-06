@@ -1,0 +1,115 @@
+
+C5.0 [Release 2.07 GPL Edition]  	Wed Dec  6 00:06:14 2017
+-------------------------------
+
+    Options:
+	Application `prediccion_lluvia'
+
+Class specified by attribute `IS_RAINING'
+
+Read 23199 cases (14 attributes) from prediccion_lluvia.data
+
+Decision tree:
+
+PAR_DEN_MIN <= 0.568: f (11801/1228)
+PAR_DEN_MIN > 0.568:
+:...RH_PERCENT <= 89.6: f (7487/134)
+    RH_PERCENT > 89.6:
+    :...SLR_W_MAX <= 7.281:
+        :...RH_PERCENT > 95: t (123/9)
+        :   RH_PERCENT <= 95:
+        :   :...WINDSP_MS_U <= 0.394: f (10)
+        :       WINDSP_MS_U > 0.394: t (37/14)
+        SLR_W_MAX > 7.281:
+        :...AIRTEMP_C_MIN <= 17.34: f (523/71)
+            AIRTEMP_C_MIN > 17.34:
+            :...PAR_DEN_MIN <= 3.407: f (63/2)
+                PAR_DEN_MIN > 3.407:
+                :...RH_PERCENT <= 91.6:
+                    :...AIRTEMP_C_MAX <= 22.31: f (610/87)
+                    :   AIRTEMP_C_MAX > 22.31:
+                    :   :...SLR_W_AVG <= 66.23: t (9/1)
+                    :       SLR_W_AVG > 66.23: f (39/12)
+                    RH_PERCENT > 91.6:
+                    :...AIRTEMP_C_MAX > 22.15: t (33/5)
+                        AIRTEMP_C_MAX <= 22.15:
+                        :...SLR_W_MIN > 197.3: f (28/1)
+                            SLR_W_MIN <= 197.3:
+                            :...BP_MBAR > 879.433:
+                                :...SLR_W_MAX <= 14.57:
+                                :   :...SLR_W_MIN > 5.395: t (21/2)
+                                :   :   SLR_W_MIN <= 5.395:
+                                :   :   :...SLR_W_MAX > 13.91: t (6)
+                                :   :       SLR_W_MAX <= 13.91:
+                                :   :       :...SLR_W_AVG <= 6.081: t (20/6)
+                                :   :           SLR_W_AVG > 6.081: f (25/4)
+                                :   SLR_W_MAX > 14.57:
+                                :   :...AIRTEMP_C_MAX <= 19.88: f (897/209)
+                                :       AIRTEMP_C_MAX > 19.88:
+                                :       :...SLR_W_MAX > 368: f (36/4)
+                                :           SLR_W_MAX <= 368:
+                                :           :...AIRTEMP_C_MIN <= 19.1: t (41/6)
+                                :               AIRTEMP_C_MIN > 19.1: f (193/84)
+                                BP_MBAR <= 879.433:
+                                :...RH_PERCENT <= 92.8: f (206/51)
+                                    RH_PERCENT > 92.8:
+                                    :...SLR_W_MIN <= 4.636: f (129/39)
+                                        SLR_W_MIN > 4.636:
+                                        :...SLR_W_MAX <= 16.54: t (57/12)
+                                            SLR_W_MAX > 16.54:
+                                            :...PAR_DEN_MIN <= 21.58: f (58/14)
+                                                PAR_DEN_MIN > 21.58:
+                                                :...WINDSP_MS_U > 1.23: f (178/70)
+                                                    WINDSP_MS_U <= 1.23:
+                                                    :...BP_MBAR <= 877.4193: t (91/31)
+                                                        BP_MBAR > 877.4193: [S1]
+
+SubTree [S1]
+
+AIRTEMP_C_MIN <= 19.1: t (301/114)
+AIRTEMP_C_MIN > 19.1: f (177/78)
+
+
+Evaluation on training data (23199 cases):
+
+	    Decision Tree   
+	  ----------------  
+	  Size      Errors  
+
+	    28 2288( 9.9%)   <<
+
+
+	   (a)   (b)    <-classified as
+	  ----  ----
+	 20372   200    (a): class f
+	  2088   539    (b): class t
+
+
+	Attribute usage:
+
+	    100%  PAR_DEN_MIN
+	     49%  RH_PERCENT
+	     17%  SLR_W_MAX
+	     16%  AIRTEMP_C_MIN
+	     14%  AIRTEMP_C_MAX
+	     11%  SLR_W_MIN
+	     11%  BP_MBAR
+	      3%  WINDSP_MS_U
+
+
+Evaluation on test data (92800 cases):
+
+	    Decision Tree   
+	  ----------------  
+	  Size      Errors  
+
+	    28 9827(10.6%)   <<
+
+
+	   (a)   (b)    <-classified as
+	  ----  ----
+	 81233  1214    (a): class f
+	  8613  1740    (b): class t
+
+
+Time: 0.5 secs

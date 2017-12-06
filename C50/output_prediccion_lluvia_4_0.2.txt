@@ -1,0 +1,162 @@
+
+C5.0 [Release 2.07 GPL Edition]  	Tue Dec  5 20:37:15 2017
+-------------------------------
+
+    Options:
+	Application `prediccion_lluvia'
+
+Class specified by attribute `IS_RAINING'
+
+Read 47256 cases (14 attributes) from prediccion_lluvia.data
+
+Decision tree:
+
+RH_PERCENT <= 84.6:
+:...RH_PERCENT <= 78.19: f (24561/293)
+:   RH_PERCENT > 78.19:
+:   :...AIRTEMP_C_MAX <= 21.1: f (12014/310)
+:       AIRTEMP_C_MAX > 21.1:
+:       :...AIRTEMP_C_AVG > 22.72:
+:           :...PAR_DEN_MIN <= 598.9: t (41/14)
+:           :   PAR_DEN_MIN > 598.9: f (3)
+:           AIRTEMP_C_AVG <= 22.72:
+:           :...PAR_DEN_MIN <= 37.69: f (221/11)
+:               PAR_DEN_MIN > 37.69:
+:               :...RH_PERCENT <= 79.53: f (181/18)
+:                   RH_PERCENT > 79.53:
+:                   :...WINDSP_MS_S > 2.057: f (80/6)
+:                       WINDSP_MS_S <= 2.057:
+:                       :...AIRTEMP_C_MAX > 23.26: t (17/1)
+:                           AIRTEMP_C_MAX <= 23.26:
+:                           :...RH_PERCENT <= 82.5: f (190/63)
+:                               RH_PERCENT > 82.5:
+:                               :...BP_MBAR <= 874.6811: f (28/7)
+:                                   BP_MBAR > 874.6811: t (61/20)
+RH_PERCENT > 84.6:
+:...PAR_DEN_MIN <= 0:
+    :...RH_PERCENT <= 89.1: f (4426/307)
+    :   RH_PERCENT > 89.1:
+    :   :...PAR_DEN_MAX > 0:
+    :       :...AIRTEMP_C_MIN <= 17.24: f (64/4)
+    :       :   AIRTEMP_C_MIN > 17.24:
+    :       :   :...AIRTEMP_C_MIN > 19.11: f (39/6)
+    :       :       AIRTEMP_C_MIN <= 19.11:
+    :       :       :...AIRTEMP_C_MAX <= 18.05:
+    :       :           :...PAR_DEN_AVG <= 0.172: t (3)
+    :       :           :   PAR_DEN_AVG > 0.172: f (27/6)
+    :       :           AIRTEMP_C_MAX > 18.05:
+    :       :           :...BP_MBAR <= 877.0831: t (116/28)
+    :       :               BP_MBAR > 877.0831:
+    :       :               :...WINDSP_MS_S <= 0.382: f (10)
+    :       :                   WINDSP_MS_S > 0.382: t (16/6)
+    :       PAR_DEN_MAX <= 0:
+    :       :...WINDSP_MS_S <= 0.449: f (2100/301)
+    :           WINDSP_MS_S > 0.449:
+    :           :...RH_PERCENT <= 92.3: f (689/158)
+    :               RH_PERCENT > 92.3:
+    :               :...AIRTEMP_C_MAX <= 17.54: t (45/13)
+    :                   AIRTEMP_C_MAX > 17.54:
+    :                   :...AIRTEMP_C_MIN > 18.25: f (218/64)
+    :                       AIRTEMP_C_MIN <= 18.25:
+    :                       :...WINDSP_MS_S <= 0.496: f (13)
+    :                           WINDSP_MS_S > 0.496:
+    :                           :...RH_PERCENT <= 92.9:
+    :                               :...BP_MBAR <= 876.5165: f (11/4)
+    :                               :   BP_MBAR > 876.5165: t (34/4)
+    :                               RH_PERCENT > 92.9:
+    :                               :...BP_MBAR <= 876.9418: f (77/24)
+    :                                   BP_MBAR > 876.9418:
+    :                                   :...AIRTEMP_C_MAX <= 17.81: f (9/1)
+    :                                       AIRTEMP_C_MAX > 17.81: t (44/14)
+    PAR_DEN_MIN > 0:
+    :...AIRTEMP_C_AVG <= 17.46: f (201/11)
+        AIRTEMP_C_AVG > 17.46:
+        :...RH_PERCENT <= 86.6:
+            :...AIRTEMP_C_MAX <= 19.48: f (190/27)
+            :   AIRTEMP_C_MAX > 19.48:
+            :   :...AIRTEMP_C_MAX <= 22.09: f (291/118)
+            :       AIRTEMP_C_MAX > 22.09:
+            :       :...AIRTEMP_C_MIN <= 21.2: t (33/3)
+            :           AIRTEMP_C_MIN > 21.2: f (18/5)
+            RH_PERCENT > 86.6:
+            :...WINDSP_MS_S <= 0.081:
+                :...PAR_DEN_MAX > 70.98: f (44/6)
+                :   PAR_DEN_MAX <= 70.98:
+                :   :...RH_PERCENT <= 89.2: f (10/1)
+                :       RH_PERCENT > 89.2: t (29/8)
+                WINDSP_MS_S > 0.081:
+                :...RH_PERCENT > 90.2:
+                    :...PAR_DEN_MAX <= 363.7: t (446/84)
+                    :   PAR_DEN_MAX > 363.7:
+                    :   :...AIRTEMP_C_MAX > 20.29: t (8)
+                    :       AIRTEMP_C_MAX <= 20.29:
+                    :       :...BP_MBAR <= 875.363: t (13/5)
+                    :           BP_MBAR > 875.363: f (14/1)
+                    RH_PERCENT <= 90.2:
+                    :...WINDSP_MS_S > 2.269: f (39/9)
+                        WINDSP_MS_S <= 2.269:
+                        :...AIRTEMP_C_MAX > 21.34: t (66/8)
+                            AIRTEMP_C_MAX <= 21.34:
+                            :...AIRTEMP_C_MIN > 19.86:
+                                :...PAR_DEN_AVG > 522.6: t (6)
+                                :   PAR_DEN_AVG <= 522.6:
+                                :   :...BP_MBAR <= 874.246: t (25/10)
+                                :       BP_MBAR > 874.246: f (66/20)
+                                AIRTEMP_C_MIN <= 19.86:
+                                :...AIRTEMP_C_MAX > 20.29: t (56/5)
+                                    AIRTEMP_C_MAX <= 20.29:
+                                    :...WINDSP_MS_S <= 1.022:
+                                        :...AIRTEMP_C_MIN > 17.78: t (207/89)
+                                        :   AIRTEMP_C_MIN <= 17.78:
+                                        :   :...RH_PERCENT <= 88.9: f (22)
+                                        :       RH_PERCENT > 88.9: t (9/2)
+                                        WINDSP_MS_S > 1.022:
+                                        :...WINDSP_MS_S <= 1.584: t (103/21)
+                                            WINDSP_MS_S > 1.584:
+                                            :...PAR_DEN_MIN <= 45.47: f (10)
+                                                PAR_DEN_MIN > 45.47: t (12/3)
+
+
+Evaluation on training data (47256 cases):
+
+	    Decision Tree   
+	  ----------------  
+	  Size      Errors  
+
+	    53 2119( 4.5%)   <<
+
+
+	   (a)   (b)    <-classified as
+	  ----  ----
+	 44085   338    (a): class f
+	  1781  1052    (b): class t
+
+
+	Attribute usage:
+
+	    100%  RH_PERCENT
+	     31%  AIRTEMP_C_MAX
+	     23%  PAR_DEN_MIN
+	     10%  WINDSP_MS_S
+	      9%  PAR_DEN_MAX
+	      6%  AIRTEMP_C_AVG
+	      3%  AIRTEMP_C_MIN
+	      1%  BP_MBAR
+
+
+Evaluation on test data (11816 cases):
+
+	    Decision Tree   
+	  ----------------  
+	  Size      Errors  
+
+	    53  596( 5.0%)   <<
+
+
+	   (a)   (b)    <-classified as
+	  ----  ----
+	 10999   114    (a): class f
+	   482   221    (b): class t
+
+
+Time: 0.4 secs

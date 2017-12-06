@@ -1,0 +1,375 @@
+
+C5.0 [Release 2.07 GPL Edition]  	Tue Dec  5 23:33:24 2017
+-------------------------------
+
+    Options:
+	Application `prediccion_lluvia'
+
+Class specified by attribute `IS_RAINING'
+
+Read 115019 cases (14 attributes) from prediccion_lluvia.data
+
+Decision tree:
+
+RH_PERCENT <= 80.3:
+:...RH_PERCENT <= 73.85: f (72166.3/225)
+:   RH_PERCENT > 73.85:
+:   :...AIRTEMP_C_MAX <= 29.77: f (8617.1/173.8)
+:       AIRTEMP_C_MAX > 29.77:
+:       :...AIRTEMP_C_MAX > 31.6: t (33.2/12.2)
+:           AIRTEMP_C_MAX <= 31.6:
+:           :...AIRTEMP_C_MIN > 28.21: f (136/6.1)
+:               AIRTEMP_C_MIN <= 28.21:
+:               :...AIRTEMP_C_MIN <= 25.73: t (9.3/2.3)
+:                   AIRTEMP_C_MIN > 25.73:
+:                   :...WINDSP_MS_S > 2.035: f (47.6/5)
+:                       WINDSP_MS_S <= 2.035:
+:                       :...AIRTEMP_C_AVG <= 29.02: f (8.9/2)
+:                           AIRTEMP_C_AVG > 29.02: t (10/1)
+RH_PERCENT > 80.3:
+:...WINDSP_MS_S <= 1.277:
+    :...RH_PERCENT <= 86.6: f (5438/269)
+    :   RH_PERCENT > 86.6:
+    :   :...WINDSP_MS_S <= 0.551: f (10665/921)
+    :       WINDSP_MS_S > 0.551:
+    :       :...SLR_W_MAX > 88.9: f (1254/113)
+    :           SLR_W_MAX <= 88.9:
+    :           :...PAR_DEN_MIN <= 5.52:
+    :               :...PAR_DEN_AVG > 14.67: f (177/6)
+    :               :   PAR_DEN_AVG <= 14.67:
+    :               :   :...AIRTEMP_C_AVG <= 22.01: f (1003/100)
+    :               :       AIRTEMP_C_AVG > 22.01:
+    :               :       :...PAR_DEN_MIN <= 0.245: f (6884/1275)
+    :               :           PAR_DEN_MIN > 0.245:
+    :               :           :...BP_MBAR > 1013.007:
+    :               :               :...RH_PERCENT <= 89.5: f (5)
+    :               :               :   RH_PERCENT > 89.5:
+    :               :               :   :...AIRTEMP_C_AVG <= 22.6: f (8/1)
+    :               :               :       AIRTEMP_C_AVG > 22.6: t (29/3)
+    :               :               BP_MBAR <= 1013.007:
+    :               :               :...RH_PERCENT > 92.2: f (88/10)
+    :               :                   RH_PERCENT <= 92.2:
+    :               :                   :...BP_MBAR <= 1007.751:
+    :               :                       :...PAR_DEN_AVG > 11.3: f (4)
+    :               :                       :   PAR_DEN_AVG <= 11.3:
+    :               :                       :   :...RH_PERCENT <= 90.6: t (25/2)
+    :               :                       :       RH_PERCENT > 90.6: [S1]
+    :               :                       BP_MBAR > 1007.751:
+    :               :                       :...BP_MBAR <= 1009.205: f (30/2)
+    :               :                           BP_MBAR > 1009.205:
+    :               :                           :...SLR_W_MAX > 7.127: f (37/6)
+    :               :                               SLR_W_MAX <= 7.127:
+    :               :                               :...SLR_W_MIN <= 0.407: f (43/12)
+    :               :                                   SLR_W_MIN > 0.407: [S2]
+    :               PAR_DEN_MIN > 5.52:
+    :               :...SLR_W_MAX <= 18.72:
+    :                   :...SLR_W_MIN <= 2.24: f (24/5)
+    :                   :   SLR_W_MIN > 2.24:
+    :                   :   :...SLR_W_MAX <= 7.935: t (23)
+    :                   :       SLR_W_MAX > 7.935:
+    :                   :       :...BP_MBAR > 1009.971:
+    :                   :           :...RH_PERCENT > 89.5: t (43/4)
+    :                   :           :   RH_PERCENT <= 89.5:
+    :                   :           :   :...WINDSP_MS_S <= 0.852: f (5)
+    :                   :           :       WINDSP_MS_S > 0.852: t (8/2)
+    :                   :           BP_MBAR <= 1009.971:
+    :                   :           :...BP_MBAR <= 942:
+    :                   :               :...AIRTEMP_C_MIN <= 25: t (16/2)
+    :                   :               :   AIRTEMP_C_MIN > 25: f (2)
+    :                   :               BP_MBAR > 942:
+    :                   :               :...BP_MBAR <= 1009.25: f (16/2)
+    :                   :                   BP_MBAR > 1009.25:
+    :                   :                   :...AIRTEMP_C_AVG <= 22.77: f (2)
+    :                   :                       AIRTEMP_C_AVG > 22.77: t (6)
+    :                   SLR_W_MAX > 18.72:
+    :                   :...PAR_DEN_MIN <= 24.45:
+    :                       :...SLR_W_MAX > 25.45: f (211/17)
+    :                       :   SLR_W_MAX <= 25.45:
+    :                       :   :...RH_PERCENT <= 87.8: t (10/3)
+    :                       :       RH_PERCENT > 87.8: f (59/14)
+    :                       PAR_DEN_MIN > 24.45:
+    :                       :...SLR_W_MAX <= 34.79:
+    :                           :...PAR_DEN_MIN > 43.35: t (10)
+    :                           :   PAR_DEN_MIN <= 43.35:
+    :                           :   :...RH_PERCENT <= 90: f (21/6)
+    :                           :       RH_PERCENT > 90:
+    :                           :       :...AIRTEMP_C_MIN <= 23.06: f (15/6)
+    :                           :           AIRTEMP_C_MIN > 23.06: t (19/2)
+    :                           SLR_W_MAX > 34.79:
+    :                           :...SLR_W_MIN <= 15.87: f (22)
+    :                               SLR_W_MIN > 15.87:
+    :                               :...WINDSP_MS_S > 0.978:
+    :                                   :...BP_MBAR <= 1011.128: f (62/16)
+    :                                   :   BP_MBAR > 1011.128:
+    :                                   :   :...PAR_DEN_MIN > 101.7: t (8)
+    :                                   :       PAR_DEN_MIN <= 101.7:
+    :                                   :       :...AIRTEMP_C_AVG <= 24.97: t (49/20)
+    :                                   :           AIRTEMP_C_AVG > 24.97: f (10)
+    :                                   WINDSP_MS_S <= 0.978:
+    :                                   :...SLR_W_AVG <= 35.03:
+    :                                       :...PAR_DEN_AVG <= 66.75: f (35/11)
+    :                                       :   PAR_DEN_AVG > 66.75: t (8/1)
+    :                                       SLR_W_AVG > 35.03:
+    :                                       :...PAR_DEN_MIN <= 63.1: f (116/10)
+    :                                           PAR_DEN_MIN > 63.1:
+    :                                           :...WINDSP_MS_U > 0.741: f (15)
+    :                                               WINDSP_MS_U <= 0.741:
+    :                                               :...SLR_W_MAX <= 60.88: t (17/6)
+    :                                                   SLR_W_MAX > 60.88: [S3]
+    WINDSP_MS_S > 1.277:
+    :...SLR_W_AVG > 235.6:
+        :...SLR_W_MIN > 88.5: f (942.3/54)
+        :   SLR_W_MIN <= 88.5:
+        :   :...PAR_DEN_MAX <= 1582: f (20.3/6)
+        :       PAR_DEN_MAX > 1582: t (5)
+        SLR_W_AVG <= 235.6:
+        :...AIRTEMP_C_MAX > 28.08:
+            :...AIRTEMP_C_MIN <= 26.9: t (132.9/15.3)
+            :   AIRTEMP_C_MIN > 26.9:
+            :   :...AIRTEMP_C_MAX <= 29.7: f (24.5/4.1)
+            :       AIRTEMP_C_MAX > 29.7: t (8.2/0.1)
+            AIRTEMP_C_MAX <= 28.08:
+            :...RH_PERCENT <= 85.1:
+                :...PAR_DEN_AVG <= 0.337: f (893.5/56.9)
+                :   PAR_DEN_AVG > 0.337:
+                :   :...AIRTEMP_C_MIN <= 25.15:
+                :       :...AIRTEMP_C_MAX > 25.95: t (91.4/31.9)
+                :       :   AIRTEMP_C_MAX <= 25.95:
+                :       :   :...WINDSP_MS_S <= 2.21: f (394.4/64)
+                :       :       WINDSP_MS_S > 2.21:
+                :       :       :...AIRTEMP_C_MIN > 24.11: f (49.5/7.7)
+                :       :           AIRTEMP_C_MIN <= 24.11:
+                :       :           :...SLR_W_MIN <= 61.3: t (67.8/25.9)
+                :       :               SLR_W_MIN > 61.3: f (15.6/1.3)
+                :       AIRTEMP_C_MIN > 25.15:
+                :       :...AIRTEMP_C_MAX <= 26.63: f (232.7/12.3)
+                :           AIRTEMP_C_MAX > 26.63:
+                :           :...AIRTEMP_C_MIN > 26.16: f (103.6/4.6)
+                :               AIRTEMP_C_MIN <= 26.16:
+                :               :...AIRTEMP_C_MAX <= 26.96: f (43.7/9.2)
+                :                   AIRTEMP_C_MAX > 26.96:
+                :                   :...AIRTEMP_C_MIN <= 25.44: t (7.1/0.1)
+                :                       AIRTEMP_C_MIN > 25.44:
+                :                       :...WINDSP_MS_U > 1.714: f (20.4/4.2)
+                :                           WINDSP_MS_U <= 1.714:
+                :                           :...AIRTEMP_C_MAX <= 27.2: t (12.2/1.1)
+                :                               AIRTEMP_C_MAX > 27.2:
+                :                               :...AIRTEMP_C_MIN > 25.99: f (4.1)
+                :                                   AIRTEMP_C_MIN <= 25.99:
+                :                                   :...SLR_W_AVG <= 12.39: f (3)
+                :                                       SLR_W_AVG > 12.39: t (5.1/0.1)
+                RH_PERCENT > 85.1:
+                :...AIRTEMP_C_MAX > 26.72:
+                    :...AIRTEMP_C_MIN <= 25.98: t (77.2/1.9)
+                    :   AIRTEMP_C_MIN > 25.98: f (17.3/6.1)
+                    AIRTEMP_C_MAX <= 26.72:
+                    :...WINDSP_MS_S <= 1.992:
+                        :...SLR_W_AVG > 130.2: f (294.9/45)
+                        :   SLR_W_AVG <= 130.2:
+                        :   :...SLR_W_MIN <= 0:
+                        :       :...RH_PERCENT <= 88.1: f (450.6/63)
+                        :       :   RH_PERCENT > 88.1:
+                        :       :   :...BP_MBAR <= 1010.894:
+                        :       :       :...PAR_DEN_MAX <= 0.358:
+                        :       :       :   :...BP_MBAR > 909: f (281/44)
+                        :       :       :   :   BP_MBAR <= 909:
+                        :       :       :   :   :...BP_MBAR <= 770.9: f (133/33)
+                        :       :       :   :       BP_MBAR > 770.9: t (27/11)
+                        :       :       :   PAR_DEN_MAX > 0.358:
+                        :       :       :   :...PAR_DEN_AVG <= 0.076: t (6)
+                        :       :       :       PAR_DEN_AVG > 0.076:
+                        :       :       :       :...PAR_DEN_MIN <= 0.245: f (48/12)
+                        :       :       :           PAR_DEN_MIN > 0.245: t (8/3)
+                        :       :       BP_MBAR > 1010.894:
+                        :       :       :...AIRTEMP_C_AVG > 24.41:
+                        :       :           :...WINDSP_MS_U <= 1.132: t (11/1)
+                        :       :           :   WINDSP_MS_U > 1.132:
+                        :       :           :   :...AIRTEMP_C_MIN > 24.84: f (50/4)
+                        :       :           :       AIRTEMP_C_MIN <= 24.84: [S4]
+                        :       :           AIRTEMP_C_AVG <= 24.41:
+                        :       :           :...RH_PERCENT > 94.5:
+                        :       :               :...WINDSP_MS_U <= 1.272: t (10)
+                        :       :               :   WINDSP_MS_U > 1.272: [S5]
+                        :       :               RH_PERCENT <= 94.5:
+                        :       :               :...PAR_DEN_MAX <= 0.358: f (754.2/296.8)
+                        :       :                   PAR_DEN_MAX > 0.358:
+                        :       :                   :...SLR_W_MAX <= 1.018: t (42.9/8)
+                        :       :                       SLR_W_MAX > 1.018: [S6]
+                        :       SLR_W_MIN > 0:
+                        :       :...SLR_W_MAX > 118.9:
+                        :           :...WINDSP_MS_S <= 1.791:
+                        :           :   :...WINDSP_MS_U > 1.279: f (82.9/7)
+                        :           :   :   WINDSP_MS_U <= 1.279:
+                        :           :   :   :...WINDSP_MS_S <= 1.313:
+                        :           :   :       :...PAR_DEN_AVG <= 224.7: f (16)
+                        :           :   :       :   PAR_DEN_AVG > 224.7: t (2)
+                        :           :   :       WINDSP_MS_S > 1.313:
+                        :           :   :       :...WINDSP_MS_U <= 1.03: f (5)
+                        :           :   :           WINDSP_MS_U > 1.03: t (24/8)
+                        :           :   WINDSP_MS_S > 1.791:
+                        :           :   :...PAR_DEN_AVG > 216.5: t (8)
+                        :           :       PAR_DEN_AVG <= 216.5:
+                        :           :       :...WINDSP_MS_U <= 1.659: t (2)
+                        :           :           WINDSP_MS_U > 1.659:
+                        :           :           :...AIRTEMP_C_MAX <= 22.97: t (2)
+                        :           :               AIRTEMP_C_MAX > 22.97: f (10/1)
+                        :           SLR_W_MAX <= 118.9:
+                        :           :...WINDSP_MS_S > 1.514:
+                        :               :...WINDSP_MS_U <= 1.466: t (122/20)
+                        :               :   WINDSP_MS_U > 1.466: f (317.9/148)
+                        :               WINDSP_MS_S <= 1.514:
+                        :               :...WINDSP_MS_U > 1.416: f (29/2)
+                        :                   WINDSP_MS_U <= 1.416:
+                        :                   :...AIRTEMP_C_MIN <= 22.99: f (97.3/25)
+                        :                       AIRTEMP_C_MIN > 22.99:
+                        :                       :...WINDSP_MS_S <= 1.405: f (141/62)
+                        :                           WINDSP_MS_S > 1.405:
+                        :                           :...SLR_W_MIN > 72.42: f (5)
+                        :                               SLR_W_MIN <= 72.42: [S7]
+                        WINDSP_MS_S > 1.992:
+                        :...PAR_DEN_MIN > 239.6:
+                            :...RH_PERCENT <= 89.7: f (69/10)
+                            :   RH_PERCENT > 89.7: t (11/4)
+                            PAR_DEN_MIN <= 239.6:
+                            :...WINDSP_MS_U <= 1.863: t (101.8/19.9)
+                                WINDSP_MS_U > 1.863:
+                                :...WINDSP_MS_S > 2.882:
+                                    :...RH_PERCENT > 88.6: t (70/3)
+                                    :   RH_PERCENT <= 88.6:
+                                    :   :...AIRTEMP_C_MAX > 26.03: t (10.5/0.3)
+                                    :       AIRTEMP_C_MAX <= 26.03:
+                                    :       :...AIRTEMP_C_MIN <= 24.7: t (53.7/20.3)
+                                    :           AIRTEMP_C_MIN > 24.7: f (11.6/1.3)
+                                    WINDSP_MS_S <= 2.882:
+                                    :...RH_PERCENT <= 86.7:
+                                        :...WINDSP_MS_U > 2.568: f (12)
+                                        :   WINDSP_MS_U <= 2.568:
+                                        :   :...WINDSP_MS_S <= 2.545: f (87.8/20)
+                                        :       WINDSP_MS_S > 2.545: t (10/2)
+                                        RH_PERCENT > 86.7:
+                                        :...PAR_DEN_MAX <= 0.358:
+                                            :...AIRTEMP_C_MIN > 24.4: f (34.1/4)
+                                            :   AIRTEMP_C_MIN <= 24.4:
+                                            :   :...AIRTEMP_C_MAX > 24.77: t (11.4/1.4)
+                                            :       AIRTEMP_C_MAX <= 24.77: [S8]
+                                            PAR_DEN_MAX > 0.358:
+                                            :...SLR_W_MAX > 228.8: f (26/4)
+                                                SLR_W_MAX <= 228.8:
+                                                :...AIRTEMP_C_MIN > 25.2: [S9]
+                                                    AIRTEMP_C_MIN <= 25.2: [S10]
+
+SubTree [S1]
+
+AIRTEMP_C_AVG <= 23.67: f (7/1)
+AIRTEMP_C_AVG > 23.67: t (3)
+
+SubTree [S2]
+
+BP_MBAR > 1010.909: t (11)
+BP_MBAR <= 1010.909:
+:...AIRTEMP_C_AVG <= 23.6: t (20/7)
+    AIRTEMP_C_AVG > 23.6: f (8)
+
+SubTree [S3]
+
+PAR_DEN_MIN <= 66.26: t (3)
+PAR_DEN_MIN > 66.26:
+:...RH_PERCENT <= 87.9: t (4/1)
+    RH_PERCENT > 87.9: f (47/6)
+
+SubTree [S4]
+
+AIRTEMP_C_MAX <= 25.13: f (98/18)
+AIRTEMP_C_MAX > 25.13: t (10/3)
+
+SubTree [S5]
+
+WINDSP_MS_U <= 1.404: f (8/1)
+WINDSP_MS_U > 1.404: t (8)
+
+SubTree [S6]
+
+AIRTEMP_C_AVG <= 23.85: f (28/2)
+AIRTEMP_C_AVG > 23.85: t (5)
+
+SubTree [S7]
+
+PAR_DEN_MIN > 5.517: t (52/10)
+PAR_DEN_MIN <= 5.517:
+:...RH_PERCENT <= 86.8: f (10/1)
+    RH_PERCENT > 86.8:
+    :...WINDSP_MS_S <= 1.46: t (14/1)
+        WINDSP_MS_S > 1.46: f (12.7/5)
+
+SubTree [S8]
+
+WINDSP_MS_U > 2.442: t (16/3)
+WINDSP_MS_U <= 2.442:
+:...BP_MBAR <= 1021: f (128.5/37)
+    BP_MBAR > 1021: t (19.7/6.7)
+
+SubTree [S9]
+
+WINDSP_MS_U <= 2.062: t (3.1)
+WINDSP_MS_U > 2.062: f (17.4/2.1)
+
+SubTree [S10]
+
+PAR_DEN_MIN > 153.8: t (27/2)
+PAR_DEN_MIN <= 153.8:
+:...SLR_W_MAX <= 146.4: t (226.2/74.4)
+    SLR_W_MAX > 146.4:
+    :...RH_PERCENT <= 90.3: f (11)
+        RH_PERCENT > 90.3:
+        :...RH_PERCENT <= 91.5: t (4)
+            RH_PERCENT > 91.5: f (6/1)
+
+
+Evaluation on training data (115019 cases):
+
+	    Decision Tree   
+	  ----------------  
+	  Size      Errors  
+
+	   142 4643( 4.0%)   <<
+
+
+	    (a)    (b)    <-classified as
+	  -----  -----
+	 109035    341    (a): class f
+	   4302   1341    (b): class t
+
+
+	Attribute usage:
+
+	    100%  RH_PERCENT
+	     30%  WINDSP_MS_S
+	     13%  AIRTEMP_C_MAX
+	     10%  SLR_W_MAX
+	      9%  PAR_DEN_AVG
+	      9%  PAR_DEN_MIN
+	      8%  AIRTEMP_C_AVG
+	      7%  SLR_W_AVG
+	      4%  SLR_W_MIN
+	      2%  AIRTEMP_C_MIN
+	      2%  BP_MBAR
+	      2%  WINDSP_MS_U
+	      2%  PAR_DEN_MAX
+
+
+Evaluation on test data (12780 cases):
+
+	    Decision Tree   
+	  ----------------  
+	  Size      Errors  
+
+	   142  591( 4.6%)   <<
+
+
+	   (a)   (b)    <-classified as
+	  ----  ----
+	 12069    79    (a): class f
+	   512   120    (b): class t
+
+
+Time: 1.3 secs

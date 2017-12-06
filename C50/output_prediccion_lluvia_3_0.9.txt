@@ -1,0 +1,74 @@
+
+C5.0 [Release 2.07 GPL Edition]  	Wed Dec  6 00:06:55 2017
+-------------------------------
+
+    Options:
+	Application `prediccion_lluvia'
+
+Class specified by attribute `IS_RAINING'
+
+Read 11599 cases (14 attributes) from prediccion_lluvia.data
+
+Decision tree:
+
+RH_PERCENT <= 90.2: f (4681/84)
+RH_PERCENT > 90.2:
+:...PAR_DEN_MIN <= 0.568: f (5084/589)
+    PAR_DEN_MIN > 0.568:
+    :...SLR_W_MAX <= 9.93:
+        :...RH_PERCENT <= 94.9: f (33/12)
+        :   RH_PERCENT > 94.9: t (86/13)
+        SLR_W_MAX > 9.93:
+        :...AIRTEMP_C_AVG <= 17.55: f (230/35)
+            AIRTEMP_C_AVG > 17.55:
+            :...RH_PERCENT <= 93.1: f (468/110)
+                RH_PERCENT > 93.1:
+                :...BP_MBAR <= 879.433:
+                    :...PAR_DEN_MIN <= 21.58: f (86/28)
+                    :   PAR_DEN_MIN > 21.58: t (381/171)
+                    BP_MBAR > 879.433:
+                    :...AIRTEMP_C_MAX <= 20.82: f (524/144)
+                        AIRTEMP_C_MAX > 20.82: t (26/4)
+
+
+Evaluation on training data (11599 cases):
+
+	    Decision Tree   
+	  ----------------  
+	  Size      Errors  
+
+	    10 1190(10.3%)   <<
+
+
+	   (a)   (b)    <-classified as
+	  ----  ----
+	 10104   188    (a): class f
+	  1002   305    (b): class t
+
+
+	Attribute usage:
+
+	    100%  RH_PERCENT
+	     60%  PAR_DEN_MIN
+	     16%  SLR_W_MAX
+	     15%  AIRTEMP_C_AVG
+	      9%  BP_MBAR
+	      5%  AIRTEMP_C_MAX
+
+
+Evaluation on test data (104400 cases):
+
+	    Decision Tree   
+	  ----------------  
+	  Size      Errors  
+
+	    10 11216(10.7%)   <<
+
+
+	   (a)   (b)    <-classified as
+	  ----  ----
+	 90753  1974    (a): class f
+	  9242  2431    (b): class t
+
+
+Time: 0.2 secs

@@ -1,0 +1,5 @@
+*.names
+*.data
+*.tree
+*.temp
+*.test

@@ -1,0 +1,125 @@
+
+C5.0 [Release 2.07 GPL Edition]  	Wed Dec  6 00:05:33 2017
+-------------------------------
+
+    Options:
+	Application `prediccion_lluvia'
+
+Class specified by attribute `IS_RAINING'
+
+Read 34799 cases (14 attributes) from prediccion_lluvia.data
+
+Decision tree:
+
+PAR_DEN_MIN <= 0.568: f (17718/1850)
+PAR_DEN_MIN > 0.568:
+:...SLR_W_MAX <= 7.279:
+    :...RH_PERCENT > 95: t (193/22)
+    :   RH_PERCENT <= 95:
+    :   :...PAR_DEN_MIN <= 4.545: f (46/14)
+    :       PAR_DEN_MIN > 4.545: t (23/6)
+    SLR_W_MAX > 7.279:
+    :...RH_PERCENT <= 91.6: f (12322/371)
+        RH_PERCENT > 91.6:
+        :...AIRTEMP_C_AVG <= 17.61:
+            :...PAR_DEN_MAX > 37.49: f (723/97)
+            :   PAR_DEN_MAX <= 37.49:
+            :   :...SLR_W_MIN <= 1.399: f (7)
+            :       SLR_W_MIN > 1.399: t (23/4)
+            AIRTEMP_C_AVG > 17.61:
+            :...AIRTEMP_C_MAX > 22.4: t (28/2)
+                AIRTEMP_C_MAX <= 22.4:
+                :...BP_MBAR <= 879.3949:
+                    :...PAR_DEN_MIN <= 13.62: f (220/45)
+                    :   PAR_DEN_MIN > 13.62:
+                    :   :...RH_PERCENT <= 92.9: f (324/93)
+                    :       RH_PERCENT > 92.9:
+                    :       :...WINDSP_MS_U <= 1.23:
+                    :           :...AIRTEMP_C_MIN <= 19.08: t (624/242)
+                    :           :   AIRTEMP_C_MIN > 19.08:
+                    :           :   :...PAR_DEN_MAX <= 355.3: f (270/104)
+                    :           :       PAR_DEN_MAX > 355.3: t (91/28)
+                    :           WINDSP_MS_U > 1.23:
+                    :           :...BP_MBAR <= 876.3257: f (15/2)
+                    :               BP_MBAR > 876.3257:
+                    :               :...BP_MBAR <= 877.4193: t (24/8)
+                    :                   BP_MBAR > 877.4193: f (249/90)
+                    BP_MBAR > 879.3949:
+                    :...AIRTEMP_C_MAX > 20.4:
+                        :...SLR_W_MAX > 348.9: f (36/4)
+                        :   SLR_W_MAX <= 348.9:
+                        :   :...AIRTEMP_C_MIN <= 19.6: t (62/9)
+                        :       AIRTEMP_C_MIN > 19.6:
+                        :       :...PAR_DEN_MAX <= 172.7: f (28/3)
+                        :           PAR_DEN_MAX > 172.7: t (89/38)
+                        AIRTEMP_C_MAX <= 20.4:
+                        :...SLR_W_MAX <= 14.57:
+                            :...SLR_W_MIN <= 4.794: f (77/28)
+                            :   SLR_W_MIN > 4.794: t (41/6)
+                            SLR_W_MAX > 14.57:
+                            :...WINDSP_MS_S <= 0.377: f (264/32)
+                                WINDSP_MS_S > 0.377:
+                                :...PAR_DEN_MIN <= 16.48: f (114/11)
+                                    PAR_DEN_MIN > 16.48:
+                                    :...SLR_W_MAX > 233.6: f (292/50)
+                                        SLR_W_MAX <= 233.6:
+                                        :...RH_PERCENT > 96.1: f (339/77)
+                                            RH_PERCENT <= 96.1:
+                                            :...RH_PERCENT <= 94.1: f (226/57)
+                                                RH_PERCENT > 94.1:
+                                                :...SLR_W_MAX <= 26.47: t (20/4)
+                                                    SLR_W_MAX > 26.47: [S1]
+
+SubTree [S1]
+
+AIRTEMP_C_MAX <= 18.85: f (160/50)
+AIRTEMP_C_MAX > 18.85:
+:...WINDSP_MS_S <= 1.167: f (106/48)
+    WINDSP_MS_S > 1.167: t (45/17)
+
+
+Evaluation on training data (34799 cases):
+
+	    Decision Tree   
+	  ----------------  
+	  Size      Errors  
+
+	    32 3412( 9.8%)   <<
+
+
+	   (a)   (b)    <-classified as
+	  ----  ----
+	 30510   386    (a): class f
+	  3026   877    (b): class t
+
+
+	Attribute usage:
+
+	    100%  PAR_DEN_MIN
+	     49%  RH_PERCENT
+	     49%  SLR_W_MAX
+	     13%  AIRTEMP_C_AVG
+	     11%  AIRTEMP_C_MAX
+	     11%  BP_MBAR
+	      5%  WINDSP_MS_S
+	      4%  WINDSP_MS_U
+	      4%  PAR_DEN_MAX
+	      3%  AIRTEMP_C_MIN
+
+
+Evaluation on test data (81200 cases):
+
+	    Decision Tree   
+	  ----------------  
+	  Size      Errors  
+
+	    32 8574(10.6%)   <<
+
+
+	   (a)   (b)    <-classified as
+	  ----  ----
+	 70880  1243    (a): class f
+	  7331  1746    (b): class t
+
+
+Time: 0.8 secs
